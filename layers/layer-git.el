@@ -6,6 +6,6 @@
 
 (use-package diff-hl :ensure t
              :init
-             )
+             (global-diff-hl-mode))
 
 (provide 'layer-git)

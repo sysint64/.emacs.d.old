@@ -22,41 +22,67 @@
              (ido-mode 1)
              (setq ido-enable-flex-matching 1))
 
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
+(use-package multiple-cursors :ensure t
+             :bind (("C-S-l" . mc/edit-lines)
+                    ("M-S-<down>" . mc/mark-next-like-this)
+                    ("M-S-<up>" . mc/mark-previous-like-this)
+                    ("M-C-S-j" . mc/mark-all-like-this)
+                    ("M-j" . mc/mark-next-like-this-word)))
 
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
+(use-package highlight-symbol :ensure t
+             :bind (("C-<f3>" . highlight-symbol)
+                    ("<f3>" . highlight-symbol-next)
+                    ("S-<f3>" . highlight-symbol-prev)
+                    ("M-<f3>" . highlight-symbol-query-replace)))
 
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
+(use-package highlight-numbers :ensure t
+             :init
+             (add-hook 'c-mode-hook 'highlight-numbers-mode))
 
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
+(use-package expand-region :ensure t
+             :bind ("C-d" . er/expand-region))
 
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
 
-(global-set-key (kbd "<home>") 'smarter-move-beginning-of-line)
+(use-package undo-tree :ensure t
+             :bind (("C-z" . undo-tree-undo)
+                    ("C-S-z" . undo-tree-redo))
+             :init (global-undo-tree-mode))
 
-(defun eval-and-replace ()
-  "Replace the preceding sexp with its value."
+(defun un-indent-by-removing-4-spaces ()
+  "remove 4 spaces from beginning of of line"
   (interactive)
-  (backward-kill-sexp)
-  (condition-case nil
-      (prin1 (eval (read (current-kill 0)))
-             (current-buffer))
-    (error (message "Invalid expression")
-           (insert (current-kill 0)))))
+  (save-excursion
+    (save-match-data
+      (beginning-of-line)
+      ;; get rid of tabs at beginning of line
+      (when (looking-at "^\\s-+")
+        (untabify (match-beginning 0) (match-end 0)))
+      (when (looking-at "^    ")
+        (replace-match "")))))
 
-(global-set-key (kbd "C-c e") 'eval-and-replace)
+(global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position))
+      (next-line))
+    (comment-or-uncomment-region beg end)))
+
+(global-unset-key (kbd "C-/"))
+(global-set-key (kbd "C-\\") 'comment-or-uncomment-region-or-line)
+(setq-default indent-tabs-mode nil)
+
+(defun comment-line ()
+  "Fill line with `-` symbol"
+  (interactive)
+  (setq cursor-position (- (line-end-position) (line-beginning-position)))
+  (insert-char (aref "-" 0) (- 100 cursor-position)))
+
+(global-set-key (kbd "C--")  'comment-line)
 
 (provide 'layer-general)

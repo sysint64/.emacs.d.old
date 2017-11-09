@@ -16,3 +16,4 @@ elpa
 auto-save-list
 ido.last
 *.eld
+*.cache
