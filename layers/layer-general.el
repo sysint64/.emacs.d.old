@@ -8,7 +8,13 @@
 (scroll-bar-mode -1)
 
 (use-package neotree :ensure t
-             :bind (("M-1" . neotree-toggle)))
+             :bind ("M-1" . neotree-toggle)
+             :init
+             (setq neo-smart-open t)
+             (setq neo-fit-to-contents t)
+             ;; (setq neo-vc-integration t)
+             (setq neo-cwd-line-style 'text)
+             (setq neo-theme 'ascii))
 
 (setq show-paren-style 'parenthesis)
 (show-paren-mode 1)

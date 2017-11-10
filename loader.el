@@ -9,6 +9,7 @@
   ;; Languages
   (add-to-list 'load-path (concat user-emacs-directory "layers/lang"))
 
+  (require 'layer-lang-lisp)
   (require 'layer-lang-cpp)
   (require 'layer-lang-d)
   (require 'layer-lang-rpdl)

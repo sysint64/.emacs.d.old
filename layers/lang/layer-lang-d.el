@@ -41,4 +41,8 @@
                           :config
                           (add-hook 'd-mode-hook 'company-dcd-mode)))
 
+(use-package rainbow-identifiers
+             :init
+             (add-hook 'd-mode-hook 'rainbow-identifiers-mode))
+
 (provide 'layer-lang-d)
