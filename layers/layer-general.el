@@ -49,6 +49,8 @@
                     ("C-S-z" . undo-tree-redo))
              :init (global-undo-tree-mode))
 
+(add-hook 'before-save-hook     'delete-trailing-whitespace)
+
 (defun un-indent-by-removing-4-spaces ()
   "remove 4 spaces from beginning of of line"
   (interactive)

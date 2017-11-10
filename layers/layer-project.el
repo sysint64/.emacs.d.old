@@ -48,22 +48,7 @@
 
 (use-package column-marker :ensure t)
 
-(use-package compile :ensure t
-             :init
-             (add-to-list
-              'compilation-error-regexp-alist
-              '("^\\([^ \n]+\\)@\\([^ \n]+\\):\\([0-9]+\\):\\([^\n]+\\)"
-                2 3 nil (4 . 5)))
-
-             (add-to-list
-              'compilation-error-regexp-alist
-              '("^\\([^ \n]+\\)(\\([0-9]+\\)): \\(?:error\\|.\\|warnin\\(g\\)\\|remar\\(k\\)\\)"
-                1 2 nil (3 . 4)))
-
-             (add-to-list
-              'compilation-error-regexp-alist
-              '("^\\([^ \n]+\\):\\([0-9]+\\) \\(?:error\\|.\\|warnin\\(g\\)\\|remar\\(k\\)\\)"
-                1 2 nil (3 . 4))))
+(use-package compile :ensure t)
 
 (use-package smartparens :ensure t
              :init
