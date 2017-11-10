@@ -9,7 +9,7 @@
 (defun rpdl-extra-font-lock-is-in-double-quoted-string ()
   "Non-nil if point in inside a double-quoted string."
   (let ((state (syntax-ppss)))
-    (eq (nth 3 state))))
+    (eq (nth 3 state) ?\")))
 
 (defun rpdl-extra-font-lock-match-ref-in-double-quoted-string (limit)
   "Search for reference in double-quoted strings."
