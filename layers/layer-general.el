@@ -14,7 +14,10 @@
              (setq neo-fit-to-contents t)
              ;; (setq neo-vc-integration t)
              (setq neo-cwd-line-style 'text)
-             (setq neo-theme 'ascii))
+             (setq neo-theme 'ascii)
+             :config
+             (custom-set-variables
+              '(neo-vc-integration (quote (face)))))
 
 (setq show-paren-style 'parenthesis)
 (show-paren-mode 1)

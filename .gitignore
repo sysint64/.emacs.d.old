@@ -11,6 +11,7 @@
 *.~undo-tree
 
 .\#*
+\#*
 
 elpa
 auto-save-list
