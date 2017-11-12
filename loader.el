@@ -19,7 +19,7 @@
   (add-to-list 'load-path (concat user-emacs-directory "themes"))
   (add-to-list 'load-path (concat user-emacs-directory "themes/color-themes"))
 
-  (require 'theme-dark)
+  (require 'theme-light)
 
   (set-default-font "Inconsolata-g-14")
   (set-default-font "Inconsolata-14"))
