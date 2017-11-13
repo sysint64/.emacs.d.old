@@ -19,14 +19,28 @@
              :init
              (projectile-mode)
              :config
+             (defun my-helm-init ()
+                    (setq projectile-completion-system 'helm)
+                    (helm-projectile-on)
+                    (add-to-list 'projectile-globally-ignored-directories ".dub"))
+
+             ;; Graphical mode
              (use-package helm-projectile :ensure t
+                          :if window-system
                           :bind (("C-S-n" . helm-projectile)
                                  ("C-n" . helm-projectile-grep)
                                  ("C-e" . helm-projectile-recentf))
                           :init
-                          (setq projectile-completion-system 'helm)
-                          (helm-projectile-on)
-                          (add-to-list 'projectile-globally-ignored-directories ".dub")))
+                          (my-helm-init))
+
+             ;; Terminal mode
+             (use-package helm-projectile :ensure t
+                          :unless window-system
+                          :bind (("C-f" . helm-projectile)
+                                 ("C-o" . helm-projectile-grep)
+                                 ("C-e" . helm-projectile-recentf))
+                          :init
+                          (my-helm-init)))
 
 (use-package hideshow :ensure t
              :init
