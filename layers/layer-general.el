@@ -95,5 +95,6 @@
   (insert-char (aref "-" 0) (- 100 cursor-position)))
 
 (global-set-key (kbd "C--")  'comment-line)
+(global-set-key (kbd "M-<f12>") 'shell)
 
 (provide 'layer-general)

@@ -5,6 +5,8 @@
 (set-face-foreground 'show-paren-match "blue")
 (set-face-attribute 'show-paren-match nil :weight 'normal)
 
+(set-face-attribute 'region nil :foreground "#555" :background "light blue")
+
 (set-face-foreground 'font-lock-string-face "SpringGreen4")
 (set-face-foreground 'font-lock-comment-face "dark gray")
 (set-face-foreground 'font-lock-comment-delimiter-face "dark gray")
@@ -30,7 +32,7 @@
 
 (custom-set-faces
  '(helm-header ((t (:foreground "#B5BABF" :background "#262c34" :bold t))))
- '(helm-selection ((t (:background "#abb9bf" :bold t))))
+ '(helm-selection ((t (:background "light blue" :bold t))))
  '(helm-source-header ((t (:foreground "#B5BABF" :foreground "#1f1f1f" :weight bold :bold t)))))
 
 (custom-set-faces
