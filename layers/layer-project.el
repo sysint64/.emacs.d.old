@@ -43,6 +43,9 @@
                           (my-helm-init)))
 
 (use-package hideshow :ensure t
+             :bind (("<f9>" . hs-toggle-hiding)
+                    ("C-<f9>" . hs-hide-level)
+                    ("C-S-<f9>" . hs-show-all))
              :init
              (defvar hs-special-modes-alist
                (mapcar 'purecopy
@@ -51,14 +54,44 @@
                          (d-mode "{" "}" "/[*/]" nil nil)
                          (bibtex-mode ("@\\S(*\\(\\s(\\)" 1))
                          (java-mode "{" "}" "/[*/]" nil nil)
-                         (js-mode "{" "}" "/[*/]" nil)))))
+                         (js-mode "{" "}" "/[*/]" nil))))
+             (defun hs-hide-all-comments ()
+               "Hide all top level blocks, if they are comments, displaying only first line.
+Move point to the beginning of the line, and run the normal hook
+`hs-hide-hook'.  See documentation for `run-hooks'."
+               (interactive)
+               (hs-life-goes-on
+                (save-excursion
+                  (unless hs-allow-nesting
+                    (hs-discard-overlays (point-min) (point-max)))
+                  (goto-char (point-min))
+                  (let ((spew (make-progress-reporter "Hiding all comment blocks..."
+                                                      (point-min) (point-max)))
+                        (re (concat "\\(" hs-c-start-regexp "\\)")))
+                    (while (re-search-forward re (point-max) t)
+                      (if (match-beginning 1)
+                          ;; found a comment, probably
+                          (let ((c-reg (hs-inside-comment-p)))
+                            (when (and c-reg (car c-reg))
+                              (if (> (count-lines (car c-reg) (nth 1 c-reg)) 1)
+                                  (hs-hide-block-at-point t c-reg)
+                                (goto-char (nth 1 c-reg))))))
+                      (progress-reporter-update spew (point)))
+                    (progress-reporter-done spew)))
+                (beginning-of-line)
+                (run-hooks 'hs-hide-hook)))
+             )
+
+(use-package hide-comnt :ensure t)
 
 ;; TODO: setup
 (use-package bookmark :ensure t
              :init
              (setq bookmark-save-flag t))
 
-(use-package flycheck :ensure t)
+(use-package flycheck :ensure t
+             :init
+             (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package column-marker :ensure t)
 

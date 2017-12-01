@@ -32,7 +32,10 @@
    '("^\\([^ \n]+\\):\\([0-9]+\\) \\(?:error\\|.\\|warnin\\(g\\)\\|remar\\(k\\)\\)"
      1 2 nil (3 . 4)))
 
-  (define-key d-mode-map (kbd "C-d") 'er/expand-region))
+  (define-key d-mode-map (kbd "C-d") 'er/expand-region)
+  (setq flycheck-checkers (remove 'd-dmd flycheck-checkers))
+  (require 'flycheck-d-dscanner)
+  (setup-flycheck-d-dscanner))
 
 (use-package d-mode :ensure t
              :config
