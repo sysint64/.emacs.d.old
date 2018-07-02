@@ -1,6 +1,8 @@
 (setq make-backup-files         nil) ; Don't want any backup files
 (setq auto-save-list-file-name  nil) ; Don't want any .saves files
 (setq auto-save-default         nil) ; Don't want any auto saving
+(setq compilation-scroll-output 'first-error)
+(setq mouse-wheel-progressive-speed nil)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -52,6 +54,8 @@
              :bind ("C-d" . er/expand-region))
 
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-q") 'kill-ring-save)
+(global-set-key (kbd "C-S-e") 'execute-extended-command)
 
 (use-package undo-tree :ensure t
              :bind (("C-z" . undo-tree-undo)

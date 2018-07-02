@@ -1,13 +1,16 @@
 (use-package bs :ensure t
-             :bind ("<f2>" . bs-show)
+             :bind ("C-2" . bs-show)
              :init
              (setq bs-configurations
                    '(("files" "^\\*scratch\\*"
                       nil nil bs-visits-non-file bs-sort-buffer-interns-are-last))))
 
 (use-package helm :ensure t
-             :bind (("C-<f12>" . helm-semantic-or-imenu)
-                    ("<f12>" . helm-occur)))
+             :init
+             (setq helm-split-window-default-side 'below)
+             (setq helm-split-window-inside-p t)
+             :bind (("C-8" . helm-semantic-or-imenu)
+                    ("C-9" . helm-occur)))
 
 (use-package yasnippet :ensure t
              :init
@@ -15,7 +18,8 @@
              (yas/load-directory "~/.emacs.d/snippets"))
 
 (use-package projectile :ensure t
-             :bind ("S-<f10>" . projectile-compile-project)
+             :bind (("C-7" . projectile-compile-project)
+                    ("C-S-r" . projectile-replace))
              :init
              (projectile-mode)
              :config
@@ -82,7 +86,7 @@ Move point to the beginning of the line, and run the normal hook
                 (run-hooks 'hs-hide-hook)))
              )
 
-(use-package hide-comnt :ensure t)
+;; (use-package hide-comnt :ensure t)
 
 ;; TODO: setup
 (use-package bookmark :ensure t
@@ -93,7 +97,7 @@ Move point to the beginning of the line, and run the normal hook
              :init
              (add-hook 'after-init-hook #'global-flycheck-mode))
 
-(use-package column-marker :ensure t)
+;; (use-package column-marker :ensure t)
 
 (use-package compile :ensure t)
 

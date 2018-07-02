@@ -1,9 +1,15 @@
+(defface font-lock-rpdl-number-face
+  '((t :inherit font-lock-constant-face))
+  "Face for highlighting attributes")
+
+(defvar font-lock-rpdl-number-face 'font-lock-rpdl-number-face)
+
 (setq rpdl-font-lock-keywords
-      `((,"#.*" . font-lock-comment-face)
+      `((,"#.*" 0 font-lock-comment-face prepend)
         (,"\\btrue\\b\\|\\bfalse\\b" . font-lock-constant-face)
         (,"\\b[a-zA-Z]\\([a-zA-Z0-9_]+\\)?\\b\\(\s+\\)?:" . font-lock-variable-name-face)
         (,"\\b[A-Z]\\([a-zA-Z0-9_]+\\)?\\b\\|include" . font-lock-keyword-face)
-        (,"\\b[0-9.]+\\b" . font-lock-constant-face)
+        (,"\\b[0-9.]+\\b" . font-lock-rpdl-number-face)
         ))
 
 (defun rpdl-extra-font-lock-is-in-double-quoted-string ()
@@ -22,9 +28,15 @@
              (not (rpdl-extra-font-lock-is-in-double-quoted-string))))
     res))
 
+(defface font-lock-rpdl-ref-face
+  '((t :inherit font-lock-constant-face))
+  "Face for highlighting attributes")
+
+(defvar font-lock-rpdl-ref-face 'font-lock-rpdl-ref-face)
+
 (defvar rpdl-extra-font-lock-keywords
   '((rpdl-extra-font-lock-match-ref-in-double-quoted-string
-     (0 'font-lock-constant-face prepend))))
+     (0 'font-lock-rpdl-ref-face prepend))))
 
 (defun rpdl-extra-font-lock-activate ()
   (interactive)
@@ -44,5 +56,12 @@
 (add-to-list 'auto-mode-alist '("\\.rpdl\\'" . rpdl-mode))
 
 (add-hook 'rpdl-mode-hook 'rpdl-extra-font-lock-activate)
+(add-hook 'rpdl-mode-hook 'linum-mode)
+
+(use-package highlight-numbers :ensure t
+  :config
+  (add-hook 'rpdl-mode-hook 'highlight-numbers-mode))
+
+;; (font-lock-add-keywords 'rpdl-mode '(("#.+" . font-lock-comment-face)))
 
 (provide 'layer-lang-rpdl)

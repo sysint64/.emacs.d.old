@@ -13,6 +13,7 @@
   (require 'layer-lang-cpp)
   (require 'layer-lang-d)
   (require 'layer-lang-rpdl)
+  (require 'layer-lang-json)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
@@ -21,7 +22,7 @@
 
   (require 'theme-light)
 
-  (set-default-font "Inconsolata-g-14")
-  (set-default-font "Inconsolata-14"))
+  (set-face-font 'default "Hack-12")
+  )
 
 (provide 'loader)
