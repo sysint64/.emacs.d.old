@@ -57,6 +57,8 @@
 (global-set-key (kbd "C-q") 'kill-ring-save)
 (global-set-key (kbd "C-S-e") 'execute-extended-command)
 
+(global-set-key (kbd "C-x C-g") 'goto-line)
+
 (use-package undo-tree :ensure t
              :bind (("C-z" . undo-tree-undo)
                     ("C-S-z" . undo-tree-redo))

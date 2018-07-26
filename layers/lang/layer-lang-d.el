@@ -51,10 +51,10 @@
                         '(("\\<\\($\(.*?\)\\)" 0 font-lock-dlang-ddoc-macro-face prepend)))
 
 (font-lock-add-keywords 'd-mode
-                        '(("\\<\\(https://[a-zA-Z0-9_/\?&\.]+\\)" 0 font-lock-dlang-url-face prepend)))
+                        '(("\\<\\(https://[a-zA-Z0-9\-_/\?\&\.\-\=]+\\)" 0 font-lock-dlang-url-face prepend)))
 
 (font-lock-add-keywords 'd-mode
-                        '(("\\<\\(http://[a-zA-Z0-9_/\?&\.]+\\)" 0 font-lock-dlang-url-face prepend)))
+                        '(("\\<\\(http://[a-zA-Z0-9\-_/\?&\.\-\=]+\\)" 0 font-lock-dlang-url-face prepend)))
 
 (font-lock-add-keywords 'd-mode
                         '(("\\<\\($[a-zA-Z0-9_]+\\)\\>" 0 font-lock-dlang-string-interpolation-face prepend)))

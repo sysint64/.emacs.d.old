@@ -37,6 +37,8 @@
 (set-face-foreground 'font-lock-rpdl-ref-face "#0000ff")
 (set-face-background 'font-lock-rpdl-ref-face "#ecfaeb")
 (set-face-attribute 'font-lock-rpdl-ref-face nil :weight 'bold)
+(set-face-foreground 'font-lock-rpdl-enum "#660E7A")
+(set-face-attribute 'font-lock-rpdl-enum nil :weight 'bold)
 
 (set-face-foreground 'font-lock-dlang-ddoc-macro-face "#555")
 (set-face-background 'font-lock-dlang-ddoc-macro-face "#ecfaeb")

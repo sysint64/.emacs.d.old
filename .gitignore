@@ -18,3 +18,5 @@ auto-save-list
 ido.last
 *.eld
 *.cache
+init.el
+.mc-lists.el

@@ -4,12 +4,19 @@
 
 (defvar font-lock-rpdl-number-face 'font-lock-rpdl-number-face)
 
+(defface font-lock-rpdl-enum
+  '((t :inherit font-lock-constant-face))
+  "Face for highlighting attributes")
+
+(defvar font-lock-rpdl-enum 'font-lock-rpdl-enum)
+
 (setq rpdl-font-lock-keywords
       `((,"#.*" 0 font-lock-comment-face prepend)
         (,"\\btrue\\b\\|\\bfalse\\b" . font-lock-constant-face)
         (,"\\b[a-zA-Z]\\([a-zA-Z0-9_]+\\)?\\b\\(\s+\\)?:" . font-lock-variable-name-face)
         (,"\\b[A-Z]\\([a-zA-Z0-9_]+\\)?\\b\\|include" . font-lock-keyword-face)
         (,"\\b[0-9.]+\\b" . font-lock-rpdl-number-face)
+        (,"\\b[a-zA-Z_][a-zA-Z_0-9]+\\b" . font-lock-rpdl-enum)
         ))
 
 (defun rpdl-extra-font-lock-is-in-double-quoted-string ()
