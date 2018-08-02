@@ -105,6 +105,8 @@
   (set-face-background 'linum "#f0f0f0")
 
   (define-key d-mode-map (kbd "C-d") 'er/expand-region)
+  (define-key d-mode-map (kbd "C-<return>") 'c-indent-new-comment-line)
+
   (setq flycheck-checkers (remove 'd-dmd flycheck-checkers))
   (require 'flycheck-d-dscanner)
   (setup-flycheck-d-dscanner))
