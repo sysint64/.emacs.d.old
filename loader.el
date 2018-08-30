@@ -1,6 +1,12 @@
 (defun load-layers ()
   (add-to-list 'load-path (concat user-emacs-directory "layers"))
 
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+  ;; (package-refresh-contents)
+
   (require 'layer-general)
   (require 'layer-buffer)
   (require 'layer-project)
@@ -14,6 +20,7 @@
   (require 'layer-lang-d)
   (require 'layer-lang-rpdl)
   (require 'layer-lang-json)
+  (require 'layer-lang-solidity)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
