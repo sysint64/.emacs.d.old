@@ -29,6 +29,8 @@
 (set-face-attribute 'font-lock-type-face nil :weight 'normal)
 (set-face-foreground 'font-lock-type-face "#371F80")
 
+(set-face-foreground 'js2-external-variable "#371F80")
+
 (global-linum-mode 0)
 
 (set-face-foreground 'font-lock-attribute-face "#83850f")

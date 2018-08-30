@@ -20,6 +20,7 @@
   (require 'layer-lang-d)
   (require 'layer-lang-rpdl)
   (require 'layer-lang-json)
+  (require 'layer-lang-js)
   (require 'layer-lang-solidity)
 
   ;; Appearence

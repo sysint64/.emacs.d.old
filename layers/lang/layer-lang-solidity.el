@@ -16,7 +16,8 @@
   (setq solidity-comment-style 'slash)
   (setq flycheck-solidity-solium-soliumrcfile "/home/andrey/projects/work/recycler-os-blockchain/.soliumrc.json")
   (add-to-list 'flycheck-checkers 'solidity-checker)
-  (add-to-list 'flycheck-checkers 'solium-checker))
+  (add-to-list 'flycheck-checkers 'solium-checker)
+  (setq truncate-lines t))
 
 (use-package solidity-mode :ensure t
   :init
@@ -24,5 +25,7 @@
 
 (use-package company-solidity :ensure t
     :after (company))
+
+(add-hook 'solidity-mode-hook 'linum-mode)
 
 (provide 'layer-lang-solidity)

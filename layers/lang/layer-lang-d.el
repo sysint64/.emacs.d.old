@@ -118,9 +118,6 @@
                           :config
                           (add-hook 'd-mode-hook 'company-dcd-mode)))
 
-;; (use-package rainbow-identifiers
-;;              :init
-;;              (add-hook 'd-mode-hook 'rainbow-identifiers-mode))
 (use-package highlight-numbers :ensure t
   :config
   (add-hook 'd-mode-hook 'highlight-numbers-mode))
