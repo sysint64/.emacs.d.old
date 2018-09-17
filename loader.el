@@ -20,8 +20,9 @@
   (require 'layer-lang-d)
   (require 'layer-lang-rpdl)
   (require 'layer-lang-json)
-  (require 'layer-lang-js)
+  ;; (require 'layer-lang-js)
   (require 'layer-lang-solidity)
+  (require 'layer-lang-go)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
