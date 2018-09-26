@@ -60,6 +60,9 @@
 (set-face-background 'font-lock-dlang-string-interpolation-face "#ecfaeb")
 (set-face-attribute 'font-lock-dlang-string-interpolation-face nil :weight 'bold)
 
+(set-face-foreground 'font-lock-dlang-template-type-face "#20999D")
+(set-face-attribute 'font-lock-dlang-template-type-face nil :weight 'normal)
+
 (set-background-color "#ffffff")
 
 (set-face-attribute 'highlight-numbers-number nil :weight 'normal)

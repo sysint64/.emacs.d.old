@@ -23,6 +23,7 @@
   ;; (require 'layer-lang-js)
   (require 'layer-lang-solidity)
   (require 'layer-lang-go)
+  (require 'layer-lang-markdown)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))

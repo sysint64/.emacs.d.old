@@ -44,6 +44,12 @@
 
 (defvar font-lock-dlang-ddoc-comment-keyword-face 'font-lock-dlang-ddoc-comment-keyword-face)
 
+(defface font-lock-dlang-template-type-face
+  '((t :inherit font-lock-constant-face))
+  "Face for highlighting template type")
+
+(defvar font-lock-dlang-template-type-face 'font-lock-dlang-template-type-face)
+
 (font-lock-add-keywords 'd-mode
                         '(("\\_<\\(@[a-zA-Z0-9_]*\\)" (1 font-lock-attribute-face))))
 
@@ -76,6 +82,9 @@
 
 (font-lock-add-keywords 'd-mode
                         '(("\\(\`[a-zA-Z0-9_\.]+\`\\)" 1 font-lock-dlang-ddoc-identifier-face prepend)))
+
+(font-lock-add-keywords 'd-mode
+                        '(("\\_<\\([A-Z][A-Z]?\\)\\_>" 0 font-lock-dlang-template-type-face append)))
 
 (defun my-d-hook ()
   (setq-default indent-tabs-mode nil)
