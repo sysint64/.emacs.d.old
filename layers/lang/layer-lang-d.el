@@ -111,8 +111,6 @@
    '("^\\([^ \n]+\\):\\([0-9]+\\) \\(?:error\\|.\\|warnin\\(g\\)\\|remar\\(k\\)\\)"
      1 2 nil (3 . 4)))
 
-  (set-face-background 'linum "#f0f0f0")
-
   (define-key d-mode-map (kbd "C-d") 'er/expand-region)
   (define-key d-mode-map (kbd "C-<return>") 'c-indent-new-comment-line)
 

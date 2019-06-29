@@ -27,6 +27,7 @@
                     (setq projectile-completion-system 'helm)
                     (helm-projectile-on)
                     (add-to-list 'projectile-globally-ignored-directories ".dub"))
+             (setq projectile-project-compilation-cmd "")
 
              ;; Graphical mode
              (use-package helm-projectile :ensure t

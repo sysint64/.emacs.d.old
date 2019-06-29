@@ -24,13 +24,14 @@
   (require 'layer-lang-solidity)
   (require 'layer-lang-go)
   (require 'layer-lang-markdown)
+  (require 'layer-lang-scala)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
   (add-to-list 'load-path (concat user-emacs-directory "themes"))
   (add-to-list 'load-path (concat user-emacs-directory "themes/color-themes"))
 
-  (require 'theme-light)
+  (require 'theme-dark)
 
   (set-face-font 'default "Hack-12")
   )

@@ -9,6 +9,12 @@
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
 
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
+(global-set-key (kbd "C-f") 'isearch-forward)
+
+(use-package avy :ensure t
+  :bind ("C-s" . avy-goto-char))
+
 (use-package neotree :ensure t
              :bind ("M-1" . neotree-toggle)
              :init

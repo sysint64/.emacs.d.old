@@ -36,11 +36,15 @@
 (set-face-foreground 'font-lock-attribute-face "#83850f")
 (set-face-attribute 'font-lock-attribute-face nil :weight 'normal)
 
+;; RPDL
+
 (set-face-foreground 'font-lock-rpdl-ref-face "#0000ff")
 (set-face-background 'font-lock-rpdl-ref-face "#ecfaeb")
 (set-face-attribute 'font-lock-rpdl-ref-face nil :weight 'bold)
 (set-face-foreground 'font-lock-rpdl-enum "#660E7A")
 (set-face-attribute 'font-lock-rpdl-enum nil :weight 'bold)
+
+;; D
 
 (set-face-foreground 'font-lock-dlang-ddoc-macro-face "#555")
 (set-face-background 'font-lock-dlang-ddoc-macro-face "#ecfaeb")
@@ -62,6 +66,17 @@
 
 (set-face-foreground 'font-lock-dlang-template-type-face "#20999D")
 (set-face-attribute 'font-lock-dlang-template-type-face nil :weight 'normal)
+
+;; Scala
+
+(set-face-attribute 'scala-font-lock:sealed-face nil :weight 'bold)
+(set-face-foreground 'scala-font-lock:sealed-face "#000081")
+
+(set-face-attribute 'scala-font-lock:final-face nil :weight 'bold)
+(set-face-foreground 'scala-font-lock:final-face "#000081")
+
+(set-face-attribute 'scala-font-lock:implicit-face nil :weight 'bold)
+(set-face-foreground 'scala-font-lock:implicit-face "#000081")
 
 (set-background-color "#ffffff")
 
