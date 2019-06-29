@@ -20,11 +20,10 @@
 (set-face-attribute 'font-lock-attribute-face nil :weight 'normal)
 
 (custom-set-faces
- '(helm-header ((t (:background "#45413b" :foreground "#c7b386" :bold t))))
- '(helm-selection ((t (:background "#fade3e" :foreground "#1a1a18" :bold t))))
- '(helm-source-header ((t (:foreground "#242321" :foreground "#f4cf86" :weight bold :bold t))))
- '(helm-candidate-number ((t (:foreground "#c7b386"  :background "#45413b"  :bold t))))
- '(helm-selection-line ((t (:background "#242321" :foreground "#b88853" :bold t)))))
+ '(helm-header ((t (:foreground "#B5BABF" :background "#262c34" :bold t))))
+ '(helm-selection ((t (:foreground "#fff" :background "#5974ab" :bold t))))
+ '(helm-match ((t (:foreground "#bd00c4" :bold t))))
+ '(helm-source-header ((t (:foreground "#f4cf86" :background "#000" :weight bold :bold t)))))
 
 (custom-set-faces
  '(diff-hl-change ((t (:background "#5B6268"))))
