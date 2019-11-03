@@ -1,5 +1,6 @@
 (require 'package)
 (setq package-enable-at-startup nil)
+(setq mac-command-modifier 'control)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))

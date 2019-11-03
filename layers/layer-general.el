@@ -8,6 +8,7 @@
 (tool-bar-mode -1)
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
+(setq ring-bell-function 'ignore)
 
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-f") 'isearch-forward)

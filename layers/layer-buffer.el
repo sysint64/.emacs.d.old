@@ -33,6 +33,16 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 (global-set-key (kbd "<home>") 'smarter-move-beginning-of-line)
+(global-set-key (kbd "M-<up>") 'forward-sexp)
+(global-set-key (kbd "M-<down>") 'backward-sexp)
+
+(if (eq system-type 'darwin)
+  (global-set-key (kbd "C-<left>") 'smarter-move-beginning-of-line)
+)
+
+(if (eq system-type 'darwin)
+  (global-set-key (kbd "C-<right>") 'move-end-of-line)
+)
 
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."

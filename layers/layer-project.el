@@ -25,6 +25,7 @@
              :config
              (defun my-helm-init ()
                     (setq projectile-completion-system 'helm)
+                    (require 'helm-projectile)
                     (helm-projectile-on)
                     (add-to-list 'projectile-globally-ignored-directories ".dub"))
              (setq projectile-project-compilation-cmd "")

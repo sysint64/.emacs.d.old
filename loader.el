@@ -31,9 +31,9 @@
   (add-to-list 'load-path (concat user-emacs-directory "themes"))
   (add-to-list 'load-path (concat user-emacs-directory "themes/color-themes"))
 
-  (require 'theme-dark)
+  (require 'theme-light)
 
-  (set-face-font 'default "Hack-12")
+  (set-face-font 'default "Hack-16")
   )
 
 (provide 'loader)
