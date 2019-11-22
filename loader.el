@@ -29,11 +29,6 @@
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
   (add-to-list 'load-path (concat user-emacs-directory "themes"))
-  (add-to-list 'load-path (concat user-emacs-directory "themes/color-themes"))
-
-  (require 'theme-light)
-
-  (set-face-font 'default "Hack-16")
-  )
+  (add-to-list 'load-path (concat user-emacs-directory "themes/color-themes")))
 
 (provide 'loader)
