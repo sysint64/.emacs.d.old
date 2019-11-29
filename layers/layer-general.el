@@ -17,7 +17,7 @@
   :bind ("C-s" . avy-goto-char))
 
 (use-package neotree :ensure t
-             :bind ("M-1" . neotree-toggle)
+             :bind ("C-1" . neotree-toggle)
              :init
              (setq neo-smart-open t)
              (setq neo-fit-to-contents t)

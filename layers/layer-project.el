@@ -12,6 +12,9 @@
              :bind (("C-8" . helm-semantic-or-imenu)
                     ("C-9" . helm-occur)))
 
+(use-package ggtags :ensure t)
+(use-package helm-gtags :ensure t)
+
 (use-package yasnippet :ensure t
              :init
              (yas-global-mode 1)
