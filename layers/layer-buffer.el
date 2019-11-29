@@ -87,7 +87,7 @@ point reaches the beginning or end of the buffer, stop there."
   (jump-to-register '1))
 
 (global-set-key (kbd "C-x 1") 'expand-current-window)
-(global-set-key (kbd "C-x r") 'restore-window-config)
+(global-set-key (kbd "C-x 4") 'restore-window-config)
 
 (defun bookmark-jump-and-save (name)
   (bookmark-set "0")
