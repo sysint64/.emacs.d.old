@@ -18,3 +18,4 @@
 (load-layers)
 (set-face-font 'default "Hack-14")
 (require 'theme-dark)
+(setq inhibit-startup-screen t)
