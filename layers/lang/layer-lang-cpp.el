@@ -6,6 +6,19 @@
   (c-set-offset 'arglist-close 0)
   (c-set-offset 'brace-list-intro '+)
   (setq truncate-lines t)
+  (ggtags-mode 1)
+  (define-key c++-mode-map (kbd "C-n") 'helm-gtags-find-pattern)
+  (define-key c-mode-map (kbd "C-n") 'helm-gtags-find-pattern)
+
+  (define-key c++-mode-map (kbd "M-h") 'ff-find-other-file)
+  (define-key c-mode-map (kbd "M-h") 'ff-find-other-file)
+
+  (define-key ggtags-mode-map (kbd "M-.") nil)
+  (define-key ggtags-mode-map (kbd "M-,") nil)
+
+  (define-key c++-mode-map (kbd "M-.") 'helm-gtags-dwim)
+  (define-key c++-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+
   (define-key c-mode-map (kbd "C-d") 'er/expand-region)
   (define-key c++-mode-map (kbd "C-d") 'er/expand-region))
 

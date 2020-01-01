@@ -20,8 +20,13 @@
              (yas-global-mode 1)
              (yas/load-directory "~/.emacs.d/snippets"))
 
+(defun save-all-and-compile ()
+  (interactive)
+  (save-some-buffers 1)
+  (projectile-compile-project ()))
+
 (use-package projectile :ensure t
-             :bind (("C-7" . projectile-compile-project)
+             :bind (("C-7" . save-all-and-compile)
                     ("C-S-r" . projectile-replace))
              :init
              (projectile-mode)
