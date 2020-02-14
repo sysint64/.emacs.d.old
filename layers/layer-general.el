@@ -38,7 +38,8 @@
 (use-package ido :ensure t
              :init
              (ido-mode 1)
-             (setq ido-enable-flex-matching 1))
+             (setq ido-enable-flex-matching 1)
+             (setq ido-auto-merge-work-directories-length -1))
 
 (use-package multiple-cursors :ensure t
              :bind (("C-S-l" . mc/edit-lines)

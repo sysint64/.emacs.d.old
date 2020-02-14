@@ -9,6 +9,7 @@
 
   (require 'layer-general)
   (require 'layer-buffer)
+  (require 'layer-bookmarks)
   (require 'layer-project)
   (require 'layer-git)
 
@@ -24,7 +25,10 @@
   (require 'layer-lang-solidity)
   (require 'layer-lang-go)
   (require 'layer-lang-markdown)
-  (require 'layer-lang-scala)
+  ;; (require 'layer-lang-scala)
+  (require 'layer-lang-glsl)
+  (require 'layer-lang-python)
+  (require 'layer-lang-rust)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
