@@ -1,0 +1,7 @@
+# name: else-if
+# key: ei
+# binding: direct-keybinding
+# --
+else if $0 {
+    
+}

@@ -29,6 +29,7 @@
   (require 'layer-lang-glsl)
   (require 'layer-lang-python)
   (require 'layer-lang-rust)
+  (require 'layer-proof-general)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))

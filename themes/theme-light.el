@@ -69,14 +69,14 @@
 
 ;; Scala
 
-(set-face-attribute 'scala-font-lock:sealed-face nil :weight 'bold)
-(set-face-foreground 'scala-font-lock:sealed-face "#000081")
+;; (set-face-attribute 'scala-font-lock:sealed-face nil :weight 'bold)
+;; (set-face-foreground 'scala-font-lock:sealed-face "#000081")
 
-(set-face-attribute 'scala-font-lock:final-face nil :weight 'bold)
-(set-face-foreground 'scala-font-lock:final-face "#000081")
+;; (set-face-attribute 'scala-font-lock:final-face nil :weight 'bold)
+;; (set-face-foreground 'scala-font-lock:final-face "#000081")
 
-(set-face-attribute 'scala-font-lock:implicit-face nil :weight 'bold)
-(set-face-foreground 'scala-font-lock:implicit-face "#000081")
+;; (set-face-attribute 'scala-font-lock:implicit-face nil :weight 'bold)
+;; (set-face-foreground 'scala-font-lock:implicit-face "#000081")
 
 (set-background-color "#ffffff")
 

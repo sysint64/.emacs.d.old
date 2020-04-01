@@ -14,7 +14,8 @@
 (global-set-key (kbd "C-f") 'isearch-forward)
 
 (use-package avy :ensure t
-  :bind ("C-s" . avy-goto-char))
+  :bind (("C-s" . avy-goto-char)
+         ("M-g g" . 'avy-goto-line)))
 
 (use-package neotree :ensure t
              :bind ("C-1" . neotree-toggle)

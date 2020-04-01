@@ -20,6 +20,8 @@
              (yas-global-mode 1)
              (yas/load-directory "~/.emacs.d/snippets"))
 
+(defun disable-final-newline () (interactive) (set (make-local-variable 'require-final-newline) nil))
+
 (defun save-all-and-compile ()
   (interactive)
   (save-some-buffers 1)
@@ -105,7 +107,8 @@ Move point to the beginning of the line, and run the normal hook
 
 (use-package flycheck :ensure t
              :init
-             (add-hook 'after-init-hook #'global-flycheck-mode))
+             ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+             )
 
 ;; (use-package column-marker :ensure t)
 
