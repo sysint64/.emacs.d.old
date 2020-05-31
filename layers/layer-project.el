@@ -1,5 +1,5 @@
 (use-package bs :ensure t
-             :bind ("C-2" . bs-show)
+             :bind ("C-c C-2" . bs-show)
              :init
              (setq bs-configurations
                    '(("files" "^\\*scratch\\*"
@@ -10,7 +10,8 @@
              (setq helm-split-window-default-side 'below)
              (setq helm-split-window-inside-p t)
              :bind (("C-8" . helm-semantic-or-imenu)
-                    ("C-9" . helm-occur)))
+                    ("C-9" . helm-occur)
+                    ("C-2" . helm-buffers-list)))
 
 (use-package ggtags :ensure t)
 (use-package helm-gtags :ensure t)

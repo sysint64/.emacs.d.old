@@ -2,6 +2,8 @@
 (setq auto-save-list-file-name  nil) ; Don't want any .saves files
 (setq auto-save-default         nil) ; Don't want any auto saving
 (setq compilation-scroll-output 'first-error)
+(setq compilation-skip-threshold 2)
+(setq compilation-auto-jump-to-first-error t)
 (setq mouse-wheel-progressive-speed nil)
 
 (menu-bar-mode -1)

@@ -1,5 +1,6 @@
 (defun load-layers ()
   (add-to-list 'load-path (concat user-emacs-directory "layers"))
+  (add-to-list 'load-path (concat user-emacs-directory "vendor"))
 
   (require 'package)
   (package-initialize)
@@ -30,6 +31,10 @@
   (require 'layer-lang-python)
   (require 'layer-lang-rust)
   (require 'layer-proof-general)
+
+  (require 'flatbuffers-mode)
+  (require 'capnp-mode)
+  (require 'llvm-mode)
 
   ;; Appearence
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/color-themes"))
