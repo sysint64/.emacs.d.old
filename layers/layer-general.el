@@ -114,4 +114,38 @@
 (global-set-key (kbd "C--")  'comment-line)
 (global-set-key (kbd "M-<f12>") 'shell)
 
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(defun duplicate-current-line (&optional n)
+  "duplicate current line, make more than 1 copy given a numeric argument"
+  (interactive "p")
+  (save-excursion
+    (let ((nb (or n 1))
+    	  (current-line (thing-at-point 'line)))
+      ;; when on last line, insert a newline first
+      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+    	(insert "\n"))
+
+      ;; now insert as many time as requested
+      (while (> n 0)
+    	(insert current-line)
+    	(decf n)))))
+
+(global-set-key (kbd "C-S-<up>") 'move-line-up)
+(global-set-key (kbd "C-S-<down>") 'move-line-down)
+(global-set-key (kbd "C-c C-d") 'duplicate-current-line)
+
 (provide 'layer-general)
