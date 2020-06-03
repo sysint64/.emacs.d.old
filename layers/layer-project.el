@@ -11,7 +11,8 @@
              (setq helm-split-window-inside-p t)
              :bind (("C-8" . helm-semantic-or-imenu)
                     ("C-9" . helm-occur)
-                    ("C-2" . helm-buffers-list)))
+                    ("C-2" . helm-buffers-list)
+                    ("C-n" . helm-etags-select)))
 
 (use-package ggtags :ensure t)
 (use-package helm-gtags :ensure t)
@@ -45,7 +46,7 @@
              (use-package helm-projectile :ensure t
                           :if window-system
                           :bind (("C-S-n" . helm-projectile)
-                                 ("C-n" . helm-projectile-grep)
+                                 ("C-S-f" . helm-projectile-grep)
                                  ("C-e" . helm-projectile-recentf))
                           :init
                           (my-helm-init))

@@ -19,9 +19,15 @@
 (use-package rustic
   :ensure t
   :init
-  (setq rustic-lsp-server 'rust-analyzer)
-  (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
+  ;; (setq rustic-lsp-server 'rust-analyzer)
+  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
   (setq rustic-flycheck-setup-mode-line-p nil))
+
+(defun create-rusty-tags ()
+  "Create tags file."
+  (interactive)
+  (when (derived-mode-p 'sr-mode 'rustic-mode)
+    (shell-command "rusty-tags emacs -O TAGS")))
 
 (use-package highlight-numbers :ensure t
   :config
@@ -38,10 +44,13 @@
   (setq truncate-lines t)
   (setq require-final-newline nil)
   (setq mode-require-final-newline nil)
+
   ;; (set (make-local-variable 'company-backends)
   ;;      '((company-lsp company-files :with company-yasnippet)
   ;;        (company-dabbrev-code company-dabbrev)))
   )
+
+(add-hook 'after-save-hook 'create-rusty-tags)
 
 (add-hook 'rustic-mode-hook 'my-rust-hook)
 (remove-hook 'rustic-mode-hook 'flycheck-mode)

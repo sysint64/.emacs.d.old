@@ -11,6 +11,11 @@
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
 (setq ring-bell-function 'ignore)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq tags-revert-without-query 1)
 
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-f") 'isearch-forward)
