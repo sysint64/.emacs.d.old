@@ -11,6 +11,9 @@
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
 (setq ring-bell-function 'ignore)
+(setq max-mini-window-height 1)
+(setq input-method-use-echo-area 'nil)
+(setq echo-keystrokes 0)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 

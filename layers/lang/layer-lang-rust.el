@@ -27,7 +27,9 @@
   "Create tags file."
   (interactive)
   (when (derived-mode-p 'sr-mode 'rustic-mode)
-    (shell-command "rusty-tags emacs -O TAGS")))
+    (with-temp-buffer
+      (shell-command "rusty-tags emacs -O TAGS" t))
+    (message "Tags rebuilt sucessfully")))
 
 (use-package highlight-numbers :ensure t
   :config
