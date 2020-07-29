@@ -3,7 +3,6 @@
 (setq auto-save-default         nil) ; Don't want any auto saving
 (setq compilation-scroll-output 'first-error)
 (setq compilation-skip-threshold 2)
-(setq compilation-auto-jump-to-first-error t)
 (setq mouse-wheel-progressive-speed nil)
 
 (menu-bar-mode -1)
@@ -11,7 +10,6 @@
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
 (setq ring-bell-function 'ignore)
-(setq max-mini-window-height 1)
 (setq input-method-use-echo-area 'nil)
 (setq echo-keystrokes 0)
 (put 'upcase-region 'disabled nil)

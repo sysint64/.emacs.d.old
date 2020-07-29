@@ -19,8 +19,8 @@
 (use-package rustic
   :ensure t
   :init
-  ;; (setq rustic-lsp-server 'rust-analyzer)
-  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
+  (setq rustic-lsp-server 'rust-analyzer)
+  (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
   (setq rustic-flycheck-setup-mode-line-p nil))
 
 (defun create-rusty-tags ()
@@ -58,7 +58,7 @@
 (remove-hook 'rustic-mode-hook 'flycheck-mode)
 
 ;; (add-hook 'rustic-mode-hook 'display-fill-column-indicator-mode)
-(add-hook 'rustic-mode-hook 'fci-mode)
+;; (add-hook 'rustic-mode-hook 'fci-mode)
 
 ;; (setq rustic-lsp-server nil)
 ;; (setq rustic-analyzer-command, "")

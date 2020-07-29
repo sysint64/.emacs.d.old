@@ -97,7 +97,10 @@
 
 ;; (set-face-foreground 'font-lock-constant-face "#DA3C01")
 ;; (set-face-attribute 'font-lock-constant-face nil :weight 'bold)
+
 (set-face-foreground 'font-lock-function-name-face "#DA3C01")
+;; (set-face-foreground 'font-lock-function-name-face "#00627A") ;; IDEA color
+
 ;; (set-face-foreground 'font-lock-constant-face "#3b5998")
 
 (set-face-attribute 'flycheck-fringe-warning nil :foreground (face-attribute 'fringe :background ))
