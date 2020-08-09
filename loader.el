@@ -31,6 +31,8 @@
   (require 'layer-lang-python)
   (require 'layer-lang-rust)
   (require 'layer-proof-general)
+  (require 'layer-lang-clojure)
+  (require 'layer-lang-sql)
 
   (require 'flatbuffers-mode)
   (require 'capnp-mode)
