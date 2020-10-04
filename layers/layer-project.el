@@ -47,6 +47,7 @@
                           :if window-system
                           :bind (("C-S-n" . helm-projectile)
                                  ("C-S-f" . helm-projectile-grep)
+                                 ("C-M-n" . helm-projectile-switch-project)
                                  ("C-e" . helm-projectile-recentf))
                           :init
                           (my-helm-init))

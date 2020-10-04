@@ -21,6 +21,11 @@
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-f") 'isearch-forward)
 
+(use-package exec-path-from-shell :ensure t)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 (use-package avy :ensure t
   :bind (("C-s" . avy-goto-char)
          ("M-g g" . 'avy-goto-line)))

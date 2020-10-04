@@ -91,6 +91,8 @@
 
 (setq-default fci-rule-column 100)
 
+(setq rustic-lsp-server 'rust-analyzer)
+
 ;; TODO:
 ;; (flycheck-list-errors)
 
