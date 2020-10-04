@@ -3,6 +3,7 @@
 (setq auto-save-default         nil) ; Don't want any auto saving
 (setq compilation-scroll-output 'first-error)
 (setq compilation-skip-threshold 2)
+(setq compilation-auto-jump-to-first-error t)
 (setq mouse-wheel-progressive-speed nil)
 
 (menu-bar-mode -1)
@@ -14,6 +15,8 @@
 (setq echo-keystrokes 0)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(defalias 'doc-view-mode #'doc-view-fallback-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq tags-revert-without-query 1)
@@ -155,8 +158,13 @@
     	(insert current-line)
     	(decf n)))))
 
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+
 (global-set-key (kbd "C-S-<up>") 'move-line-up)
 (global-set-key (kbd "C-S-<down>") 'move-line-down)
 (global-set-key (kbd "C-c C-d") 'duplicate-current-line)
+(global-set-key (kbd "C-c C-r") 'revert-buffer-no-confirm)
 
 (provide 'layer-general)

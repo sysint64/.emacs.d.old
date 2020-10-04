@@ -20,7 +20,7 @@
   :ensure t
   :init
   (setq rustic-lsp-server 'rust-analyzer)
-  (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
+  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
   (setq rustic-flycheck-setup-mode-line-p nil))
 
 (defun create-rusty-tags ()
@@ -72,7 +72,7 @@
                         '(("dyn" . font-lock-keyword-face)))
 
 (font-lock-add-keywords 'rustic-mode
-                        '(("\\<\\(TODO\\):" 1 font-lock-warning-face prepend)
+                        '(("\\<\\(TODO\\)\\(([a-zA-Z0-9_\.]+)\\)?:" 1 font-lock-warning-face prepend)
                           ("\\<\\(FIXME\\):" 1 font-lock-doc-face prepend)))
 
 (defvar-local company-fci-mode-on-p nil)
