@@ -40,12 +40,20 @@
 
 (define-key lsp-mode-map (kbd "C-S-SPC") nil)
 (define-key lsp-mode-map (kbd "S-<f6>") 'lsp-rename)
+(define-key lsp-mode-map (kbd "M-<return>") 'helm-lsp-code-actions)
+(define-key lsp-mode-map (kbd "C-U") 'lsp-find-definition)
+(define-key lsp-mode-map (kbd "C-M-B") 'lsp-goto-implementation)
+(define-key lsp-mode-map (kbd "C-N") 'helm-lsp-workspace-symbol)
 (define-key rustic-mode-map (kbd "C-M-L") 'rustic-format-buffer)
+(define-key rustic-mode-map (kbd "C-<return>") 'comment-indent-new-line)
+
+(setq helm-lsp-treemacs-icons nil)
 
 (defun my-rust-hook ()
   (setq truncate-lines t)
   (setq require-final-newline nil)
   (setq mode-require-final-newline nil)
+  (setq lsp-ui-doc-enable 0)
 
   ;; (set (make-local-variable 'company-backends)
   ;;      '((company-lsp company-files :with company-yasnippet)

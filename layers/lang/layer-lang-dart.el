@@ -5,8 +5,7 @@
   :ensure t
   :hook (dart-mode . lsp))
 
-(use-package lsp-ui :ensure t)
-
-(setq lsp-ui-doc-enable 0)
+;; (use-package lsp-ui :ensure t)
+;; (setq lsp-ui-doc-enable nil)
 
 (provide 'layer-lang-dart)

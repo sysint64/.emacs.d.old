@@ -80,7 +80,7 @@
 
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'kill-ring-save)
-(global-set-key (kbd "C-S-e") 'execute-extended-command)
+(global-set-key (kbd "C-S-e") 'helm-M-x)
 
 (global-set-key (kbd "C-x C-g") 'goto-line)
 
