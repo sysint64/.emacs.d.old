@@ -128,4 +128,28 @@ Move point to the beginning of the line, and run the normal hook
              :init
              (global-company-mode))
 
+(defun endless/send-input (input &optional nl)
+  "Send INPUT to the current process.
+Interactively also sends a terminating newline."
+  (interactive "MInput: \nd")
+  (let ((string (concat input (if nl "\n"))))
+    ;; This is just for visual feedback.
+    (let ((inhibit-read-only t))
+      (insert-before-markers string))
+    ;; This is the important part.
+    (process-send-string
+     (get-buffer-process (current-buffer))
+     string)))
+
+(defun endless/send-self ()
+  "Send the pressed key to the current process."
+  (interactive)
+  (endless/send-input
+   (apply #'string
+          (append (this-command-keys-vector) nil))))
+
+(dolist (key '("r" "R" "p"))
+  (define-key compilation-mode-map key
+    #'endless/send-self))
+
 (provide 'layer-project)

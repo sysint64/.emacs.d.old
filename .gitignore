@@ -20,3 +20,4 @@ ido.last
 *.cache
 init.el
 .mc-lists.el
+.extension
