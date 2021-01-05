@@ -76,7 +76,39 @@
 
 (setq rustic-lsp-server 'rust-analyzer)
 
+(dap-register-debug-template "Rust::GDB Run Configuration"
+                             (list :type "gdb"
+                                   :request "launch"
+                                   :name "GDB::Run"
+                                   :gdbpath "/usr/bin/gdb"
+                                   :target nil
+                                   :cwd nil))
+
 ;; TODO:
 ;; (flycheck-list-errors)
+
+(defun save-all-and-cargo-run ()
+  (interactive)
+  (save-some-buffers 1)
+  (projectile-run-compilation "cargo run"))
+
+(defun save-all-and-cargo-test ()
+  (interactive)
+  (save-some-buffers 1)
+  (projectile-run-compilation "cargo test"))
+
+(defun save-all-and-cargo-doc ()
+  (interactive)
+  (save-some-buffers 1)
+  (projectile-run-compilation "cargo doc"))
+
+(defhydra hydra-run ()
+  "Run"
+  ("r" save-all-and-cargo-run "cargo run" :exit t)
+  ("t" save-all-and-cargo-test "cargo test" :exit t)
+  ("d" save-all-and-cargo-doc "cargo doc" :exit t)
+  ("c" save-all-and-compile "cargo test" :exit t))
+
+(define-key rustic-mode-map (kbd "C-7") 'hydra-run/body)
 
 (provide 'layer-lang-rust)

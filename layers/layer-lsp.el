@@ -23,4 +23,10 @@
 (define-key lsp-mode-map (kbd "C-M-B") 'lsp-goto-implementation)
 (define-key lsp-mode-map (kbd "C-N") 'helm-lsp-workspace-symbol)
 
+(use-package dap-mode
+  :ensure t)
+
+(require 'dap-gdb-lldb)
+(dap-gdb-lldb-setup)
+
 (provide 'layer-lsp)

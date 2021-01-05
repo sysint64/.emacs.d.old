@@ -15,6 +15,7 @@
 (setq echo-keystrokes 0)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(setq dired-dwim-target t)
 
 (defalias 'doc-view-mode #'doc-view-fallback-mode)
 
@@ -23,6 +24,25 @@
 
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-f") 'isearch-forward)
+
+(use-package hydra :ensure t
+  :config (setq hydra-is-helpful t
+                hydra-lv t
+                lv-use-separator t))
+
+(defun save-all ()
+  (interactive)
+  (save-some-buffers 1))
+
+(defhydra hydra-action ()
+  "action"
+  ("f" make-empty-file "file" :exit t)
+  ("d" make-directory "directory" :exit t)
+  ("s" save-all "save all" :exit t)
+  ("g" text-scale-increase "text scale increase")
+  ("l" text-scale-decrease "text scale decrease"))
+
+(global-set-key (kbd "C-c a") 'hydra-action/body)
 
 (use-package exec-path-from-shell :ensure t)
 
@@ -165,6 +185,6 @@
 (global-set-key (kbd "C-S-<up>") 'move-line-up)
 (global-set-key (kbd "C-S-<down>") 'move-line-down)
 (global-set-key (kbd "C-c C-d") 'duplicate-current-line)
-(global-set-key (kbd "C-c C-r") 'revert-buffer-no-confirm)
+(global-set-key (kbd "C-c C-g") 'revert-buffer-no-confirm)
 
 (provide 'layer-general)
