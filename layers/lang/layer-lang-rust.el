@@ -1,26 +1,10 @@
-;; (use-package rust-mode
-;;   :ensure t)
-
 (use-package cargo
-  :ensure t)
-
-(use-package lsp-mode
-  :ensure t)
-
-(use-package company-lsp
-  :ensure t)
-
-(use-package lsp-treemacs
-  :ensure t)
-
-(use-package helm-lsp
   :ensure t)
 
 (use-package rustic
   :ensure t
   :init
   (setq rustic-lsp-server 'rust-analyzer)
-  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
   (setq rustic-flycheck-setup-mode-line-p nil))
 
 (defun create-rusty-tags ()
@@ -36,18 +20,9 @@
   (add-hook 'rustic-mode-hook 'highlight-numbers-mode))
 
 (add-hook 'rustic-mode-hook 'linum-mode)
-(setq lsp-keymap-prefix "C-c l")
 
-(define-key lsp-mode-map (kbd "C-S-SPC") nil)
-(define-key lsp-mode-map (kbd "S-<f6>") 'lsp-rename)
-(define-key lsp-mode-map (kbd "M-<return>") 'helm-lsp-code-actions)
-(define-key lsp-mode-map (kbd "C-U") 'lsp-find-definition)
-(define-key lsp-mode-map (kbd "C-M-B") 'lsp-goto-implementation)
-(define-key lsp-mode-map (kbd "C-N") 'helm-lsp-workspace-symbol)
 (define-key rustic-mode-map (kbd "C-M-L") 'rustic-format-buffer)
 (define-key rustic-mode-map (kbd "C-<return>") 'comment-indent-new-line)
-
-(setq helm-lsp-treemacs-icons nil)
 
 (defun my-rust-hook ()
   (setq truncate-lines t)

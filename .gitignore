@@ -21,3 +21,10 @@ ido.last
 init.el
 .mc-lists.el
 .extension
+session.*
+bookmarks
+.dap-breakpoints
+.lsp-session*
+recentf
+transient/
+*.dat

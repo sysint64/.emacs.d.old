@@ -15,6 +15,7 @@
   (require 'layer-bookmarks)
   (require 'layer-project)
   (require 'layer-git)
+  (require 'layer-lsp)
 
   ;; Languages
   (add-to-list 'load-path (concat user-emacs-directory "layers/lang"))
