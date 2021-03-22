@@ -5,11 +5,13 @@
 (setq compilation-skip-threshold 2)
 (setq compilation-auto-jump-to-first-error t)
 (setq mouse-wheel-progressive-speed nil)
+(setq use-dialog-box nil)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (delete-selection-mode 1)
 (scroll-bar-mode -1)
+(setq frame-resize-pixelwise t)
 (setq ring-bell-function 'ignore)
 (setq input-method-use-echo-area 'nil)
 (setq echo-keystrokes 0)
@@ -31,16 +33,24 @@
                 lv-use-separator t))
 
 (defun save-all ()
-  (interactive)
+  (interactive)[]
   (save-some-buffers 1))
+
+(defun replace-last-sexp ()
+  (interactive)
+  (let ((value (eval (preceding-sexp))))
+    (kill-sexp -1)
+    (insert (format "%S" value))))
 
 (defhydra hydra-action ()
   "action"
+  ("a" org-agenda "agenda" :exit t)
   ("f" make-empty-file "file" :exit t)
   ("d" make-directory "directory" :exit t)
   ("s" save-all "save all" :exit t)
   ("g" text-scale-increase "text scale increase")
-  ("l" text-scale-decrease "text scale decrease"))
+  ("l" text-scale-decrease "text scale decrease")
+  ("e" replace-last-sexp "eval last sexp and replace"))
 
 (global-set-key (kbd "C-c a") 'hydra-action/body)
 
@@ -59,6 +69,8 @@
              (setq neo-smart-open t)
              (setq neo-fit-to-contents t)
              ;; (setq neo-vc-integration t)
+             (setq neo-window-fixed-size nil)
+             (setq neo-window-width 60)
              (setq neo-cwd-line-style 'text)
              (setq neo-theme 'ascii)
              :config
@@ -69,34 +81,34 @@
 (show-paren-mode 1)
 
 (use-package highlight-parentheses :ensure t
-             :init
-             (global-highlight-parentheses-mode))
+  :init
+  (global-highlight-parentheses-mode))
 
 (use-package ido :ensure t
-             :init
-             (ido-mode 1)
-             (setq ido-enable-flex-matching 1)
-             (setq ido-auto-merge-work-directories-length -1))
+  :init
+  (ido-mode 1)
+  (setq ido-enable-flex-matching 1)
+  (setq ido-auto-merge-work-directories-length -1))
 
 (use-package multiple-cursors :ensure t
-             :bind (("C-S-l" . mc/edit-lines)
-                    ("M-S-<down>" . mc/mark-next-like-this)
-                    ("M-S-<up>" . mc/mark-previous-like-this)
-                    ("M-C-S-j" . mc/mark-all-like-this)
-                    ("M-j" . mc/mark-next-like-this-word)))
+  :bind (("C-S-l" . mc/edit-lines)
+         ("M-S-<down>" . mc/mark-next-like-this)
+         ("M-S-<up>" . mc/mark-previous-like-this)
+         ("M-C-S-j" . mc/mark-all-like-this)
+         ("M-j" . mc/mark-next-like-this-word)))
 
 (use-package highlight-symbol :ensure t
-             :bind (("C-<f3>" . highlight-symbol)
-                    ("<f3>" . highlight-symbol-next)
-                    ("S-<f3>" . highlight-symbol-prev)
-                    ("M-<f3>" . highlight-symbol-query-replace)))
+  :bind (("C-<f3>" . highlight-symbol)
+         ("<f3>" . highlight-symbol-next)
+         ("S-<f3>" . highlight-symbol-prev)
+         ("M-<f3>" . highlight-symbol-query-replace)))
 
 (use-package highlight-numbers :ensure t
-             :init
-             (add-hook 'c-mode-hook 'highlight-numbers-mode))
+  :init
+  (add-hook 'c-mode-hook 'highlight-numbers-mode))
 
 (use-package expand-region :ensure t
-             :bind ("C-d" . er/expand-region))
+  :bind ("C-d" . er/expand-region))
 
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'kill-ring-save)
@@ -105,9 +117,9 @@
 (global-set-key (kbd "C-x C-g") 'goto-line)
 
 (use-package undo-tree :ensure t
-             :bind (("C-z" . undo-tree-undo)
-                    ("C-S-z" . undo-tree-redo))
-             :init (global-undo-tree-mode))
+  :bind (("C-z" . undo-tree-undo)
+         ("C-S-z" . undo-tree-redo))
+  :init (global-undo-tree-mode))
 
 (add-hook 'before-save-hook     'delete-trailing-whitespace)
 

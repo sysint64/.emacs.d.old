@@ -30,12 +30,12 @@
   (setq mode-require-final-newline nil)
   (setq lsp-ui-doc-enable 0)
 
+  (add-hook 'after-save-hook 'create-rusty-tags)
+
   ;; (set (make-local-variable 'company-backends)
   ;;      '((company-lsp company-files :with company-yasnippet)
   ;;        (company-dabbrev-code company-dabbrev)))
   )
-
-(add-hook 'after-save-hook 'create-rusty-tags)
 
 (add-hook 'rustic-mode-hook 'my-rust-hook)
 (remove-hook 'rustic-mode-hook 'flycheck-mode)
@@ -92,6 +92,11 @@
   (save-some-buffers 1)
   (projectile-run-compilation "cargo run"))
 
+(defun save-all-and-cargo-clippy ()
+  (interactive)
+  (save-some-buffers 1)
+  (projectile-run-compilation "cargo clippy"))
+
 (defun save-all-and-cargo-test ()
   (interactive)
   (save-some-buffers 1)
@@ -104,11 +109,12 @@
 
 (defhydra hydra-run ()
   "Run"
+  ("l" save-all-and-cargo-clippy "cargo clippy" :exit t)
   ("r" save-all-and-cargo-run "cargo run" :exit t)
   ("t" save-all-and-cargo-test "cargo test" :exit t)
   ("d" save-all-and-cargo-doc "cargo doc" :exit t)
-  ("c" save-all-and-compile "cargo test" :exit t))
+  ("c" save-all-and-compile "custom" :exit t))
 
-(define-key rustic-mode-map (kbd "C-7") 'hydra-run/body)
+(define-key rustic-mode-map (kbd "C-6") 'hydra-run/body)
 
 (provide 'layer-lang-rust)

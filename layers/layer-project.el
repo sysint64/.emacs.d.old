@@ -31,7 +31,7 @@
 
 (use-package projectile :ensure t
              :bind (("C-7" . save-all-and-compile)
-                    ("C-S-r" . projectile-replace))
+                    ("C-S-r" . find-name-dired))
              :init
              (projectile-mode)
              :config

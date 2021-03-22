@@ -17,7 +17,8 @@
 
 (define-key lsp-mode-map (kbd "C-N") 'helm-lsp-workspace-symbol)
 (define-key lsp-mode-map (kbd "C-S-SPC") nil)
-(define-key lsp-mode-map (kbd "S-<f6>") 'lsp-rename)
+(define-key lsp-mode-map (kbd "C-c ^") 'lsp-rename)
+(define-key lsp-mode-map (kbd "C-c &") 'lsp-find-references)
 (define-key lsp-mode-map (kbd "M-<return>") 'helm-lsp-code-actions)
 (define-key lsp-mode-map (kbd "C-U") 'lsp-find-definition)
 (define-key lsp-mode-map (kbd "C-M-B") 'lsp-goto-implementation)

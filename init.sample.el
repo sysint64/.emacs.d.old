@@ -16,6 +16,6 @@
 
 (load-file (concat user-emacs-directory "loader.el"))
 (load-layers)
-(set-face-font 'default "Hack-14")
+(set-face-font 'default "Hack-12")
 (require 'theme-dark)
 (setq inhibit-startup-screen t)

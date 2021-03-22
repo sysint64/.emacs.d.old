@@ -8,7 +8,7 @@
   (add-to-list 'compilation-error-regexp-alist-alist '(dart-analyze "\\([^ ]*\\.dart\\):\\([0-9]+\\):\\([0-9]+\\)" 1 2 3))
   ;; (add-to-list 'compilation-error-regexp-alist-alist '(dart-analyze "(package:\\([^ ]*\\.dart\\):\\([0-9]+\\):\\([0-9]+\\))" 1 2 3))
   (setq tab-width 2)
-  ;; (setq lsp-dart-line-length 80)
+  (setq lsp-dart-line-length 100)
   (setq truncate-lines t))
 
 (use-package lsp-dart
