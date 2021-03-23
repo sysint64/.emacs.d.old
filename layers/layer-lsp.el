@@ -9,9 +9,6 @@
 (use-package lsp-treemacs
   :ensure t)
 
-(use-package company-lsp
-  :ensure t)
-
 (setq lsp-keymap-prefix "C-c l")
 (setq helm-lsp-treemacs-icons nil)
 

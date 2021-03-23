@@ -4,7 +4,7 @@
 
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
   ;; (package-refresh-contents)
@@ -37,6 +37,7 @@
   (require 'layer-lang-clojure)
   (require 'layer-lang-sql)
   (require 'layer-lang-dart)
+  (require 'layer-lang-swift)
 
   (require 'flatbuffers-mode)
   (require 'capnp-mode)
