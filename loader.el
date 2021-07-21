@@ -37,7 +37,9 @@
   (require 'layer-lang-clojure)
   (require 'layer-lang-sql)
   (require 'layer-lang-dart)
-  (require 'layer-lang-swift)
+  (require 'layer-lang-julia)
+
+  (if (eq system-type 'darwin) (require 'layer-lang-swift))
 
   (require 'flatbuffers-mode)
   (require 'capnp-mode)

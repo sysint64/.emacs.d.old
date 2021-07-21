@@ -64,18 +64,19 @@
          ("M-g g" . 'avy-goto-line)))
 
 (use-package neotree :ensure t
-             :bind ("C-1" . neotree-toggle)
-             :init
-             (setq neo-smart-open t)
-             (setq neo-fit-to-contents t)
-             ;; (setq neo-vc-integration t)
-             (setq neo-window-fixed-size nil)
-             (setq neo-window-width 60)
-             (setq neo-cwd-line-style 'text)
-             (setq neo-theme 'ascii)
-             :config
-             (custom-set-variables
-              '(neo-vc-integration (quote (face)))))
+  :bind (("C-1" . neotree-toggle)
+         ("C-3" . neotree-find))
+  :init
+  (setq neo-smart-open t)
+  (setq neo-fit-to-contents t)
+  ;; (setq neo-vc-integration t)
+  (setq neo-window-fixed-size nil)
+  (setq neo-window-width 60)
+  (setq neo-cwd-line-style 'text)
+  (setq neo-theme 'ascii)
+  :config
+  (custom-set-variables
+   '(neo-vc-integration (quote (face)))))
 
 (setq show-paren-style 'parenthesis)
 (show-paren-mode 1)
