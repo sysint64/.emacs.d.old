@@ -1,3 +1,16 @@
+(require 'xterm-color)
+(setq compilation-environment '("TERM=xterm-256color"))
+(defun my/advice-compilation-filter (f proc string)
+  (funcall f proc (xterm-color-filter string)))
+(advice-add 'compilation-filter :around #'my/advice-compilation-filter)
+
+;; (ignore-errors
+;;   (require 'ansi-color)
+;;   (defun my-colorize-compilation-buffer ()
+;;     (when (eq major-mode 'compilation-mode)
+;;       (ansi-color-apply-on-region compilation-filter-start (point-max))))
+;;   (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
+
 (use-package bs :ensure t
   :bind ("C-c C-2" . bs-show)
   :init
