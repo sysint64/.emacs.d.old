@@ -17,9 +17,10 @@
 (define-key lsp-mode-map (kbd "C-c ^") 'lsp-rename)
 (define-key lsp-mode-map (kbd "C-c &") 'lsp-find-references)
 (define-key lsp-mode-map (kbd "M-<return>") 'helm-lsp-code-actions)
-(define-key lsp-mode-map (kbd "C-U") 'lsp-find-definition)
 (define-key lsp-mode-map (kbd "C-M-B") 'lsp-goto-implementation)
 (define-key lsp-mode-map (kbd "C-N") 'helm-lsp-workspace-symbol)
+
+(setq lsp-signature-render-documentation nil)
 
 (use-package dap-mode
   :ensure t)

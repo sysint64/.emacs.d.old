@@ -1,15 +1,9 @@
-(require 'xterm-color)
+(use-package xterm-color :ensure t)
+
 (setq compilation-environment '("TERM=xterm-256color"))
 (defun my/advice-compilation-filter (f proc string)
   (funcall f proc (xterm-color-filter string)))
 (advice-add 'compilation-filter :around #'my/advice-compilation-filter)
-
-;; (ignore-errors
-;;   (require 'ansi-color)
-;;   (defun my-colorize-compilation-buffer ()
-;;     (when (eq major-mode 'compilation-mode)
-;;       (ansi-color-apply-on-region compilation-filter-start (point-max))))
-;;   (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
 
 (use-package bs :ensure t
   :bind ("C-c C-2" . bs-show)
@@ -25,7 +19,11 @@
   :bind (("C-8" . helm-semantic-or-imenu)
          ("C-9" . helm-occur)
          ("C-2" . helm-buffers-list)
-         ("C-n" . helm-etags-select)))
+         ("C-n" . helm-etags-select)
+         ("C-b" . helm-bookmarks)
+         ("C-x C-f" . helm-find-files)
+         ("M-y" . helm-show-kill-ring)
+         ("M-k" . helm-calcul-expression)))
 
 (use-package ggtags :ensure t)
 (use-package helm-gtags :ensure t)
@@ -75,9 +73,9 @@
     (my-helm-init)))
 
 (use-package hideshow :ensure t
-  :bind (("<f9>" . hs-toggle-hiding)
-         ("C-<f9>" . hs-hide-level)
-         ("C-S-<f9>" . hs-show-all))
+  :bind (("M-h" . hs-toggle-hiding)
+         ("C-h" . hs-hide-level)
+         ("C-S-h" . hs-show-all))
   :init
   (defvar hs-special-modes-alist
     (mapcar 'purecopy

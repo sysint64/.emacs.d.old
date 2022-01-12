@@ -1,5 +1,13 @@
 (global-set-key (kbd "<escape>") 'my-navigation-mode)
 
+(defun my-scroll-up ()
+  (interactive)
+  (scroll-up-line 5))
+
+(defun my-scroll-down ()
+  (interactive)
+  (scroll-down-line 5))
+
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
 
@@ -29,6 +37,28 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "M-<down>") 'backward-sexp)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
+
+(setq superword 1)
+
+(defun toggle-superword-subword ()
+  (interactive)
+  (if (= superword 1)
+      (progn (setq superword 0)
+             (global-superword-mode 0)
+             (global-subword-mode 1))
+    (progn (setq superword 1)
+           (global-subword-mode 0)
+           (global-superword-mode 1))))
+
+(global-set-key (kbd "C-,") 'my-scroll-down)
+(global-set-key (kbd "C-.") 'my-scroll-up)
+
+(global-unset-key (kbd "C-j"))
+(global-unset-key (kbd "C-u"))
+
+(global-set-key (kbd "C-j") 'toggle-superword-subword)
+
+(global-superword-mode 1)
 
 ;; (if (eq system-type 'darwin)
 ;;     (global-set-key (kbd "C-<left>") 'smarter-move-beginning-of-line)

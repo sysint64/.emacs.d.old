@@ -3,9 +3,10 @@
 (setq auto-save-default         nil) ; Don't want any auto saving
 (setq compilation-scroll-output 'first-error)
 (setq compilation-skip-threshold 2)
-(setq compilation-auto-jump-to-first-error t)
+(setq compilation-auto-jump-to-first-error nil)
 (setq mouse-wheel-progressive-speed nil)
 (setq use-dialog-box nil)
+(put 'dired-find-alternate-file 'disabled nil) ; disables warning
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -114,6 +115,7 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'kill-ring-save)
 (global-set-key (kbd "C-S-e") 'helm-M-x)
+(global-set-key (kbd "C-x o") 'ace-window)
 
 (global-set-key (kbd "C-x C-g") 'goto-line)
 

@@ -3,6 +3,19 @@
 
 (use-package rustic
   :ensure t
+  :config (progn (add-to-list 'compilation-error-regexp-alist-alist
+                              (cons 'rustic-error rustic-compilation-error))
+                 (add-to-list 'compilation-error-regexp-alist-alist
+                              (cons 'rustic-warning rustic-compilation-warning))
+                 (add-to-list 'compilation-error-regexp-alist-alist
+                              (cons 'rustic-info rustic-compilation-info))
+                 (add-to-list 'compilation-error-regexp-alist-alist
+                              (cons 'rustic-panic rustic-compilation-panic))
+
+                 (add-to-list 'compilation-error-regexp-alist 'rustic-error)
+                 (add-to-list 'compilation-error-regexp-alist 'rustic-warning)
+                 (add-to-list 'compilation-error-regexp-alist 'rustic-info)
+                 (add-to-list 'compilation-error-regexp-alist 'rustic-panic))
   :init
   (setq rustic-lsp-server 'rust-analyzer)
   (setq rustic-flycheck-setup-mode-line-p nil))
