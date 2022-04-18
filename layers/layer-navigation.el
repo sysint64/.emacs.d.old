@@ -83,7 +83,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 (global-set-key (kbd "C-o") 'open-next-line)
 (global-set-key (kbd "C-S-o") 'open-prev-line)
-(global-set-key (kbd "C-9") 'er/mark-outside-pairs)
 
 (define-minor-mode my-navigation-mode
   "navigation layer"

@@ -110,7 +110,8 @@
   (add-hook 'c-mode-hook 'highlight-numbers-mode))
 
 (use-package expand-region :ensure t
-  :bind ("C-d" . er/expand-region))
+  :bind (("C-d" . er/expand-region)
+         ("C-9" . er/mark-outside-pairs)))
 
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'kill-ring-save)
