@@ -17,7 +17,7 @@
   (setq helm-split-window-default-side 'below)
   (setq helm-split-window-inside-p t)
   :bind (("C-8" . helm-semantic-or-imenu)
-         ("C-9" . helm-occur)
+         ("C-0" . helm-occur)
          ("C-2" . helm-buffers-list)
          ("C-n" . helm-etags-select)
          ("C-b" . helm-bookmarks)
