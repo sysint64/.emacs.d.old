@@ -111,7 +111,10 @@
 
 (use-package expand-region :ensure t
   :bind (("C-d" . er/expand-region)
-         ("C-9" . er/mark-outside-pairs)))
+         ("C-9" . er/mark-outside-pairs)
+         ("C-0" . er/mark-inside-pairs)
+         ("C-'" . er/mark-inside-quotes)
+         ("C-\"" . er/mark-outside-quotes)))
 
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-q") 'kill-ring-save)

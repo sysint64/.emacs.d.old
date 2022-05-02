@@ -28,4 +28,16 @@
 (require 'dap-gdb-lldb)
 (dap-gdb-lldb-setup)
 
+  ;; never collect.
+
+;; (setq gc-cons-threshold 10000000000)
+;; (defun garbage-collect (&rest args)
+  ;; (message "trying to garbage collect. probably you want to quit emacs."))
+;; (setq garbage-collection-messages t)
+
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+;; (setq lsp-idle-delay 0.500)
+;; (setq lsp-use-plists t)
+(setq lsp-log-io nil)
+
 (provide 'layer-lsp)

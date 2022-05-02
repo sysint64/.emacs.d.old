@@ -1,4 +1,9 @@
 (defun load-layers ()
+  ;; (setq package-native-compile t)
+  ;; (setq comp-deferred-compilation t)
+  (setq gc-cons-threshold 100000000)
+  ;; (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
+
   (add-to-list 'load-path (concat user-emacs-directory "layers"))
   (add-to-list 'load-path (concat user-emacs-directory "vendor"))
 
